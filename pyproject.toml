@@ -1,0 +1,19 @@
+[project]
+authors = [{name = "Andrii Liekariev", email = "elfpkck@gmail.com"}]
+dependencies = [
+    "scipy>=1.16.3",
+    "simpleitk>=2.5.3",
+]
+description = ""
+name = "test-task-3d"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.14"
+
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.5.0",
+    "ruff>=0.14.8",
+    "scipy-stubs>=1.16.3.3",
+]
