@@ -19,10 +19,11 @@ from scipy.spatial import cKDTree  # type: ignore[import]
 
 
 if TYPE_CHECKING:
+    import numpy.typing as npt  # type: ignore[import]
     from pathlib import Path
 
 
-def convert_to_world_coordinates(img: sitk.Image) -> np.ndarray:
+def convert_to_world_coordinates(img: sitk.Image) -> npt.NDArray[np.float64]:
     """
     Convert voxel indices from image space to world coordinates, considering the
     image's origin, spacing, and direction.
@@ -37,7 +38,7 @@ def convert_to_world_coordinates(img: sitk.Image) -> np.ndarray:
     :type img: sitk.Image
     :return: A numpy array of world coordinates corresponding to the non-zero
              voxel indices of the input image.
-    :rtype: np.ndarray
+    :rtype: npt.NDArray[np.float64]
     """
     origin = np.array(img.GetOrigin())
     spacing = np.array(img.GetSpacing())
@@ -70,7 +71,7 @@ class Distances:
         self.img_2 = sitk.ReadImage(path_2)
 
     @lru_cache(maxsize=1)
-    def _compute_distances(self) -> np.ndarray:
+    def _compute_distances(self) -> npt.NDArray[np.float64]:
         points_1 = convert_to_world_coordinates(self.img_1)
         points_2 = convert_to_world_coordinates(self.img_2)
         tree = cKDTree(points_2)
