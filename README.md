@@ -2,7 +2,7 @@
 A Python tool for computing distances between voxel points in medical images using SimpleITK.
 
 ## Overview
-This module provides functionality for transforming voxel indices to world coordinates and computing minimum and maximum distances between sets of points extracted from two medical images. It's specifically useful in medical imaging applications where accurate spatial measurements are required.
+This module provides functionality for transforming voxel indices to world coordinates and computing minimum distances between sets of points extracted from two medical images. It's specifically useful in medical imaging applications where accurate spatial measurements are required.
 
 
 ## Prerequisites

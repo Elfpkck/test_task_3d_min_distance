@@ -3,7 +3,7 @@ A module for handling distance computations between voxel points in medical
 images loaded using SimpleITK.
 
 This module provides functionality for transforming voxel indices to world
-coordinates and for computing minimum and maximum distances between sets of
+coordinates and for computing minimum distances between sets of
 points extracted from two images. It is specifically useful in medical imaging
 applications where accurate spatial measurements are required.
 """
@@ -55,7 +55,7 @@ class Distances:
     Handles computation of distances between corresponding points in two images.
 
     This class is designed to compute distances between two sets of points
-    extracted from images. The main purpose is to evaluate minimum and maximum
+    extracted from images. The main purpose is to evaluate minimum
     distances between the points in two given images. The images are read from the
     provided file paths and processed to compute distances efficiently.
 
@@ -86,16 +86,6 @@ class Distances:
         :rtype: float
         """
         return self._compute_distances().min()
-
-    @cached_property
-    def maximum(self) -> float:
-        """
-        The maximum distance between the two images.
-
-        :return: The maximum distance value as a float.
-        :rtype: float
-        """
-        return self._compute_distances().max()
 
 
 if __name__ == "__main__":
